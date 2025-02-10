@@ -16,3 +16,16 @@ export const createProduct = async (req, res) => {
         res.status(500).json({ message: "Internal Server Error" })
     }
 }
+
+export const deleteProduct = async (req, res) => {
+    const { productId } = req.params
+
+    try {
+        await Product.findByIdAndDelete(productId)
+        res.status(200).json({ message: "Product Deleted" })
+    }
+    catch(error) {
+        console.error(error)
+        res.status(500).json({ message: "Internal Server Error" })
+    } 
+}
