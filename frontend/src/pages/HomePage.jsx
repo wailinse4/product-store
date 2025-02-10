@@ -24,6 +24,8 @@ const HomePage = () => {
           <RefreshCwIcon className="size-5" onClick={fetchProducts}/>
         </button>
       </div>
+
+      {error && <div className="alert alert-error mb-8">{error}</div>}
     </main>
   )
 }
