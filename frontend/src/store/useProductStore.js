@@ -21,5 +21,21 @@ export const useProductStore = create((set, get) => ({
         finally {
             set({ loading: false })
         }
-    }
+    },
+
+    deleteProduct: async (productId) => {
+        console.log(productId);
+        set({ loading: true });
+        try {
+          await axios.delete(`${BASE_URL}/api/products/${productId}`);
+          set((prev) => ({ products: prev.products.filter((product) => product._id !== productId) }));
+        } 
+        catch (error) {
+            set({ error: error.message })
+        } 
+        finally {
+          set({ loading: false });
+        }
+      },
+    
 }))
