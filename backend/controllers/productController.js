@@ -29,3 +29,17 @@ export const deleteProduct = async (req, res) => {
         res.status(500).json({ message: "Internal Server Error" })
     } 
 }
+
+export const updateProduct = async (req, res) => {
+    const { productId } = req.params
+    const { name, price, image } = req.body
+
+    try {
+        const updatedProduct = await Product.findByIdAndUpdate(productId, { name, price, image }, { new: true })
+        res.status(200).json({ message: "Product Updated", data: updatedProduct })
+    }
+    catch(error) {
+        console.error(error)
+        res.status(500).json({ message: "Internal Server Error" })
+    }  
+}
