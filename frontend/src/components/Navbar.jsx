@@ -1,4 +1,5 @@
 import React from 'react'
+import { Link } from "react-router-dom"
 
 const Navbar = () => {
   return (
@@ -7,7 +8,11 @@ const Navbar = () => {
             <div className="navbar px-4 min-h-[4rem] justify-between">
                 { /* LOGO */ }
                 <div className="flex-1 lg:flex-none">
-                    <span className="font-semibold font-mono tracking-widest text-2xl bg-clip-text text-transparent bg-gradient-to-r from-primary to-secondary">Product Store</span>
+                    <Link to="/" className="hover:opacity-80 transition-opacity">
+                        <div className="flex items-center gap-2"> 
+                            <span className="font-semibold font-mono tracking-widest text-2xl bg-clip-text text-transparent bg-gradient-to-r from-primary to-secondary">Product Store</span>
+                        </div>
+                    </Link>
                 </div>
             </div>
         </div>
@@ -16,4 +21,3 @@ const Navbar = () => {
 }
 
 export default Navbar
-
