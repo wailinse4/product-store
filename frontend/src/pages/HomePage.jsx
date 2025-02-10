@@ -2,7 +2,7 @@ import React from 'react'
 import { useEffect } from "react"
 import { useProductStore } from "../store/useProductStore.js"
 
-import { PlusSquareIcon } from 'lucide-react'
+import { PlusSquareIcon, RefreshCwIcon } from 'lucide-react'
 
 const HomePage = () => {
   const { products, loading, error, fetchProducts } = useProductStore()
@@ -18,6 +18,10 @@ const HomePage = () => {
         <button className="btn btn-primary">
           <PlusSquareIcon className="size-5 mr-2" />
           Add Product
+        </button>
+        
+        <button>
+          <RefreshCwIcon className="size-5" onClick={fetchProducts}/>
         </button>
       </div>
     </main>
